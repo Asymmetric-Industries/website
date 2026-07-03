@@ -1,0 +1,10 @@
+{
+  "name": "website",
+  "compatibility_date": "2026-07-03",
+  "assets": { "directory": "." },
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "asymmetric-industries.com", "custom_domain": true },
+    { "pattern": "www.asymmetric-industries.com", "custom_domain": true }
+  ]
+}
