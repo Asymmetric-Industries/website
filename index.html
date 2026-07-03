@@ -31,6 +31,9 @@
     letter-spacing:.32em; text-transform:uppercase; color:var(--graphite);
   }
   header{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  a.mono{text-decoration:none; transition:color .15s;}
+  a.mono:hover{color:var(--amber);}
+  .footlink{color:var(--amber);}
 
   main{
     flex:1; display:flex; flex-direction:column;
@@ -45,7 +48,7 @@
   .bar{width:56px; height:3px; background:var(--amber); margin:38px auto 32px;}
   .mission{
     font-size:clamp(16px,1.9vw,19px); line-height:1.6;
-    color:#CFC9BB; max-width:44ch;
+    color:#CFC9BB; max-width:none;
   }
   .cta{
     display:inline-block; margin-top:44px; text-decoration:none;
@@ -126,6 +129,7 @@
 
     <footer>
       <span class="mono">&copy; 2026 Asymmetric Industries</span>
+      <a class="mono footlink" href="/manifesto">Manifesto&nbsp;&rarr;</a>
       <span class="mono">Private &amp; Confidential</span>
     </footer>
   </div>
