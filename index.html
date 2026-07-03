@@ -1,174 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Asymmetric Industries</title>
-<meta name="description" content="A permanent-capital holding company compounding what makes Europe's industrial mid-market special. Engineering-led. Built for the long horizon.">
-<meta property="og:title" content="Asymmetric Industries">
-<meta property="og:description" content="A permanent-capital holding company compounding what makes Europe's industrial mid-market special. Engineering-led. Built for the long horizon.">
-<meta property="og:type" content="website">
-<meta name="robots" content="index,follow">
+<meta name="description" content="We acquire the suppliers behind Europe's critical industries and unlock their capacity with AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2317140F'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23E39A2D'/%3E%3C/svg%3E">
 <style>
-  :root {
-    --bg: #0b0d10;
-    --ink: #e8e6e1;
-    --ink-mute: #8a8780;
-    --rule: #1f2228;
-    --accent: #d4a574;
+  :root{
+    --coal:#17140F; --coal-2:#100E0A; --bone:#F3EFE4; --graphite:#8B857A; --amber:#E39A2D;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body {
-    height: 100%;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: "Söhne", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 "Helvetica Neue", Arial, sans-serif;
-    font-feature-settings: "ss01", "cv11";
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--coal); color:var(--bone);
+    font-family:'Archivo',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh; display:flex; flex-direction:column;
   }
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  .frame{
+    flex:1; display:flex; flex-direction:column;
+    margin:18px; border:1px solid rgba(139,133,122,.30);
+    padding:clamp(24px,5vw,56px);
   }
-  header, footer {
-    padding: 32px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 13px;
-    letter-spacing: 0.02em;
+  .mono{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500;
+    letter-spacing:.32em; text-transform:uppercase; color:var(--graphite);
   }
-  header .mark {
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-size: 12px;
-  }
-  header .mark::before {
-    content: "";
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    margin-right: 10px;
-    transform: translateY(-1px);
-  }
-  header .meta {
-    color: var(--ink-mute);
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 40px;
-  }
-  .wrap {
-    max-width: 880px;
-    margin: 0 auto;
-  }
-  h1 {
-    font-size: clamp(36px, 6vw, 72px);
-    font-weight: 600;
-    line-height: 1.04;
-    letter-spacing: -0.02em;
-    margin-bottom: 28px;
-  }
-  h1 .accent { color: var(--accent); font-style: italic; font-weight: 500; }
-  .lede {
-    font-size: clamp(18px, 2.2vw, 24px);
-    line-height: 1.45;
-    color: var(--ink);
-    max-width: 720px;
-    margin-bottom: 18px;
-    font-weight: 400;
-  }
-  .sub {
-    font-size: clamp(15px, 1.6vw, 18px);
-    line-height: 1.55;
-    color: var(--ink-mute);
-    max-width: 640px;
-    margin-bottom: 56px;
-  }
-  .contact {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 22px;
-    border: 1px solid var(--rule);
-    border-radius: 0;
-    color: var(--ink);
-    text-decoration: none;
-    font-size: 15px;
-    letter-spacing: 0.02em;
-    transition: all 0.18s ease;
-  }
-  .contact:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .contact .arrow {
-    display: inline-block;
-    transition: transform 0.18s ease;
-  }
-  .contact:hover .arrow { transform: translateX(3px); }
-  footer {
-    border-top: 1px solid var(--rule);
-    color: var(--ink-mute);
-    font-size: 12px;
-    letter-spacing: 0.04em;
-  }
-  footer .left { text-transform: uppercase; }
-  footer .right a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-  }
-  footer .right a:hover { border-color: var(--accent); color: var(--accent); }
+  header{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
 
-  @media (max-width: 600px) {
-    header, footer { padding: 20px 24px; }
-    main { padding: 24px; }
-    h1 { margin-bottom: 24px; }
-    .sub { margin-bottom: 40px; }
+  main{
+    flex:1; display:flex; flex-direction:column;
+    justify-content:center; align-items:center; text-align:center;
+    padding:12vh 0 10vh;
   }
+  h1{
+    font-weight:900; letter-spacing:-.02em; line-height:1.0;
+    font-size:clamp(48px,9vw,120px);
+  }
+  h1 .a{color:var(--amber);}
+  .bar{width:56px; height:3px; background:var(--amber); margin:38px auto 32px;}
+  .mission{
+    font-size:clamp(16px,1.9vw,19px); line-height:1.6;
+    color:#CFC9BB; max-width:44ch;
+  }
+  .cta{
+    display:inline-block; margin-top:44px; text-decoration:none;
+    color:var(--amber); border:1px solid rgba(227,154,45,.55);
+    font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500;
+    letter-spacing:.3em; text-transform:uppercase; padding:14px 28px;
+    transition:background .15s,color .15s;
+  }
+  .cta:hover{background:var(--amber); color:var(--coal);}
+
+  .contact{
+    max-width:560px; width:100%; margin:0 auto; padding:6vh 0 4vh; text-align:left;
+  }
+  .contact .mono{color:var(--amber);}
+  form{margin-top:22px; display:grid; gap:14px;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:560px){.row2{grid-template-columns:1fr;}}
+  input,textarea{
+    width:100%; background:var(--coal-2); border:1px solid rgba(139,133,122,.35);
+    color:var(--bone); font-family:'Archivo',sans-serif; font-size:15px;
+    padding:13px 14px; border-radius:0; outline:none; transition:border-color .15s;
+  }
+  input:focus,textarea:focus{border-color:var(--amber);}
+  ::placeholder{color:#6d675c;}
+  textarea{min-height:110px; resize:vertical;}
+  button{
+    justify-self:start; cursor:pointer; border:none;
+    background:var(--amber); color:var(--coal);
+    font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500;
+    letter-spacing:.28em; text-transform:uppercase; padding:15px 30px;
+    transition:opacity .15s;
+  }
+  button:hover{opacity:.88;}
+  .sent{
+    display:none; margin-top:18px; border:1px solid var(--amber);
+    padding:14px 16px; font-size:14px; color:var(--bone);
+  }
+  .sent.show{display:block;}
+  footer{
+    display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    border-top:1px solid rgba(139,133,122,.30); padding-top:18px; margin-top:24px;
+  }
+  .hp{position:absolute; left:-9999px; opacity:0;}
 </style>
 </head>
 <body>
+  <div class="frame">
+    <header>
+      <span class="mono">Asymmetric&nbsp;Industries</span>
+      <span class="mono">London</span>
+    </header>
 
-<header>
-  <div class="mark">Asymmetric Industries</div>
-  <div class="meta">London · Est. 2026</div>
-</header>
+    <main>
+      <h1>Asymmetric<br>Industries<span class="a">.</span></h1>
+      <div class="bar"></div>
+      <p class="mission">
+        We acquire the suppliers behind Europe&rsquo;s critical industries
+        and unlock their capacity with&nbsp;AI.
+      </p>
+      <a class="cta" href="#contact">Contact&nbsp;&rarr;</a>
+    </main>
 
-<main>
-  <div class="wrap">
-    <h1>The <span class="accent">Operator's</span> Alpha.</h1>
-    <p class="lede">
-      A permanent-capital holding company compounding what makes Europe's
-      industrial mid-market special.
-    </p>
-    <p class="sub">
-      Engineering-led. Built for the long horizon. Acquire, transform,
-      compound, re-rate &mdash; in aerospace, power and grid, and engineering
-      services.
-    </p>
-    <a class="contact" href="mailto:hsingh@asymmetric-industries.com">
-      <span>hsingh@asymmetric-industries.com</span>
-      <span class="arrow">&rarr;</span>
-    </a>
+    <section class="contact" id="contact">
+      <div class="mono">Contact</div>
+      <form action="https://formsubmit.co/singh.harkirat@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Asymmetric Industries — website enquiry">
+        <input type="hidden" name="_next" value="https://asymmetric-industries.com/?sent=1#contact">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <div class="row2">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <input type="text" name="organisation" placeholder="Organisation">
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send&nbsp;&rarr;</button>
+      </form>
+      <div class="sent" id="sent">Received. We&rsquo;ll be in touch.</div>
+    </section>
+
+    <footer>
+      <span class="mono">&copy; 2026 Asymmetric Industries</span>
+      <span class="mono">Private &amp; Confidential</span>
+    </footer>
   </div>
-</main>
 
-<footer>
-  <div class="left">&copy; 2026 Asymmetric Industries</div>
-  <div class="right">Private &amp; Confidential</div>
-</footer>
-
+<script>
+  if (new URLSearchParams(location.search).get('sent') === '1') {
+    document.getElementById('sent').classList.add('show');
+  }
+</script>
 </body>
 </html>
