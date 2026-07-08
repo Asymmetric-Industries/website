@@ -41,7 +41,15 @@
     font-weight:900; letter-spacing:-.02em; line-height:1.0;
     font-size:clamp(48px,9vw,120px);
   }
-  h1 .a{color:var(--amber);}
+  h1 .type{
+    color:var(--amber);
+    border-right:.055em solid var(--amber); padding-right:.03em;
+    animation:caret 1.05s step-end infinite;
+  }
+  @keyframes caret{0%,100%{border-color:var(--amber);}50%{border-color:transparent;}}
+  @media (prefers-reduced-motion: reduce){
+    h1 .type{animation:none; border-right-color:transparent;}
+  }
   .bar{width:56px; height:3px; background:var(--amber); margin:38px auto 32px;}
   .mission{
     font-size:clamp(16px,1.9vw,19px); line-height:1.6;
@@ -99,7 +107,7 @@
     </header>
 
     <main>
-      <h1>Asymmetric<br>Industries</h1>
+      <h1>Asymmetric<br><span class="type" id="type" aria-live="polite">Industries</span></h1>
       <div class="bar"></div>
       <p class="mission">
         Backing the operators behind Europe&rsquo;s industrial&nbsp;mid-market.
@@ -134,6 +142,26 @@
   if (new URLSearchParams(location.search).get('sent') === '1') {
     document.getElementById('sent').classList.add('show');
   }
+
+  (function () {
+    var el = document.getElementById('type');
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var words = ['Industries', 'Advantage'];
+    var TYPE = 95, DEL = 45, HOLD = 1700, GAP = 450;
+    var wi = 0, ci = words[0].length, deleting = true;
+    function tick() {
+      var w = words[wi];
+      if (deleting) {
+        el.textContent = w.slice(0, --ci);
+        if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; return setTimeout(tick, GAP); }
+        return setTimeout(tick, DEL);
+      }
+      el.textContent = w.slice(0, ++ci);
+      if (ci === w.length) { deleting = true; return setTimeout(tick, HOLD); }
+      return setTimeout(tick, TYPE);
+    }
+    setTimeout(tick, HOLD);
+  })();
 </script>
 </body>
 </html>
