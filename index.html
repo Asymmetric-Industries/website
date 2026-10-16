@@ -4,139 +4,146 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Asymmetric Industries</title>
-<meta name="description" content="Backing the operators behind Europe's industrial mid-market.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2317140F'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23E39A2D'/%3E%3C/svg%3E">
+<meta name="description" content="Asymmetric advantage for companies and operators.">
+<meta name="theme-color" content="#202521">
+<link rel="icon" href="/brand/favicon-32.svg" type="image/svg+xml">
+<link rel="icon" href="/brand/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/brand/avatar.png">
 <style>
+  /* Tokens from brand-kit v0.1.0 (system/design-tokens.json) */
   :root{
-    --coal:#17140F; --coal-2:#100E0A; --bone:#F3EFE4; --graphite:#8B857A; --amber:#E39A2D;
+    --ink:#202521; --paper:#F1EEE5; --accent:#BAE35A; --muted:#5F6B62; --rule:#D2D5C9; --white:#FFFFFF;
+    --font:Arial,Helvetica,sans-serif;
+    --edge:clamp(24px,5vw,64px);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--coal); color:var(--bone);
-    font-family:'Archivo',sans-serif;
+    background:var(--paper); color:var(--ink);
+    font-family:var(--font);
     -webkit-font-smoothing:antialiased;
-    min-height:100vh; display:flex; flex-direction:column;
   }
-  .frame{
-    flex:1; display:flex; flex-direction:column;
-    margin:18px; border:1px solid rgba(139,133,122,.30);
-    padding:clamp(24px,5vw,56px);
+  .eyebrow{
+    font-size:11px; letter-spacing:2px; text-transform:uppercase;
   }
-  .mono{
-    font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500;
-    letter-spacing:.32em; text-transform:uppercase; color:var(--graphite);
+
+  /* Dark cover */
+  .cover{
+    background:var(--ink); color:var(--paper);
+    min-height:100vh; min-height:100svh;
+    display:flex; flex-direction:column;
+    padding:var(--edge);
   }
   header{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
-
+  .name{font-weight:700; font-size:15px; letter-spacing:-.2px;}
   main{
-    flex:1; display:flex; flex-direction:column;
-    justify-content:center; align-items:center; text-align:center;
-    padding:12vh 0 10vh;
+    flex:1; display:flex; flex-direction:column; justify-content:center;
+    padding:12vh 0 8vh;
   }
   h1{
-    font-weight:900; letter-spacing:-.02em; line-height:1.0;
-    font-size:clamp(48px,9vw,120px);
+    font-weight:700; letter-spacing:-.03em; line-height:1.0;
+    font-size:clamp(52px,10vw,136px);
   }
   h1 .type{
-    color:var(--amber);
-    border-right:.055em solid var(--amber); padding-right:.03em;
+    border-right:.06em solid var(--accent); padding-right:.03em;
     animation:caret 1.05s step-end infinite;
   }
-  @keyframes caret{0%,100%{border-color:var(--amber);}50%{border-color:transparent;}}
+  @keyframes caret{0%,100%{border-color:var(--accent);}50%{border-color:transparent;}}
   @media (prefers-reduced-motion: reduce){
     h1 .type{animation:none; border-right-color:transparent;}
   }
-  .bar{width:56px; height:3px; background:var(--amber); margin:38px auto 32px;}
-  .mission{
-    font-size:clamp(16px,1.9vw,19px); line-height:1.6;
-    color:#CFC9BB; max-width:none;
+  .ethos{
+    margin-top:32px; max-width:30ch;
+    font-size:clamp(20px,2.4vw,28px); line-height:1.25;
   }
   .cta{
-    display:inline-block; margin-top:44px; text-decoration:none;
-    color:var(--amber); border:1px solid rgba(227,154,45,.55);
-    font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500;
-    letter-spacing:.3em; text-transform:uppercase; padding:14px 28px;
-    transition:background .15s,color .15s;
+    align-self:flex-start; margin-top:48px; text-decoration:none;
+    background:var(--accent); color:var(--ink);
+    font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    padding:16px 28px; transition:opacity .15s;
   }
-  .cta:hover{background:var(--amber); color:var(--coal);}
+  .cta:hover{opacity:.88;}
 
+  /* Light content */
   .contact{
-    max-width:560px; width:100%; margin:0 auto; padding:6vh 0 4vh; text-align:left;
+    padding:96px var(--edge) 64px;
   }
-  .contact .mono{color:var(--amber);}
-  form{margin-top:22px; display:grid; gap:14px;}
-  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .contact-inner{max-width:640px;}
+  .contact h2{
+    font-size:clamp(32px,4vw,48px); line-height:1.12; letter-spacing:-1px; font-weight:700;
+    margin-top:16px;
+  }
+  .contact .eyebrow{color:var(--muted);}
+  form{margin-top:32px; display:grid; gap:16px;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
   @media(max-width:560px){.row2{grid-template-columns:1fr;}}
   input,textarea{
-    width:100%; background:var(--coal-2); border:1px solid rgba(139,133,122,.35);
-    color:var(--bone); font-family:'Archivo',sans-serif; font-size:15px;
-    padding:13px 14px; border-radius:0; outline:none; transition:border-color .15s;
+    width:100%; background:var(--white); border:1px solid var(--rule);
+    color:var(--ink); font-family:var(--font); font-size:16px;
+    padding:14px; border-radius:0; outline:none; transition:border-color .15s;
   }
-  input:focus,textarea:focus{border-color:var(--amber);}
-  ::placeholder{color:#6d675c;}
-  textarea{min-height:110px; resize:vertical;}
+  input:focus,textarea:focus{border-color:var(--ink);}
+  ::placeholder{color:var(--muted);}
+  textarea{min-height:128px; resize:vertical;}
   button{
-    justify-self:start; cursor:pointer; border:none;
-    background:var(--amber); color:var(--coal);
-    font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500;
-    letter-spacing:.28em; text-transform:uppercase; padding:15px 30px;
+    justify-self:start; cursor:pointer; border:none; border-radius:0;
+    background:var(--ink); color:var(--paper);
+    font-family:var(--font); font-size:13px; font-weight:700;
+    letter-spacing:2px; text-transform:uppercase; padding:16px 32px;
     transition:opacity .15s;
   }
   button:hover{opacity:.88;}
   .sent{
-    display:none; margin-top:18px; border:1px solid var(--amber);
-    padding:14px 16px; font-size:14px; color:var(--bone);
+    display:none; margin-top:24px; border-left:4px solid var(--accent);
+    background:var(--white); padding:14px 16px; font-size:15px;
   }
   .sent.show{display:block;}
   footer{
     display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
-    border-top:1px solid rgba(139,133,122,.30); padding-top:18px; margin-top:24px;
+    margin:0 var(--edge); padding:24px 0 32px;
+    border-top:1px solid var(--rule); color:var(--muted);
   }
   .hp{position:absolute; left:-9999px; opacity:0;}
 </style>
 </head>
 <body>
-  <div class="frame">
+  <section class="cover">
     <header>
-      <span class="mono">Asymmetric&nbsp;Industries</span>
-      <span class="mono">London</span>
+      <span class="name">Asymmetric Industries</span>
+      <span class="eyebrow">London</span>
     </header>
 
     <main>
       <h1>Asymmetric<br><span class="type" id="type" aria-live="polite">Industries</span></h1>
-      <div class="bar"></div>
-      <p class="mission">
-        Backing the operators behind Europe&rsquo;s industrial&nbsp;mid-market.
-      </p>
+      <p class="ethos">Asymmetric advantage for companies and&nbsp;operators.</p>
       <a class="cta" href="#contact">Contact&nbsp;&rarr;</a>
     </main>
+  </section>
 
-    <section class="contact" id="contact">
-      <div class="mono">Contact</div>
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="eyebrow">Contact</div>
+      <h2>Get in touch</h2>
       <form action="https://formsubmit.co/hsingh@asymmetric-industries.com" method="POST">
         <input type="hidden" name="_subject" value="Asymmetric Industries — website enquiry">
         <input type="hidden" name="_next" value="https://asymmetric-industries.com/?sent=1#contact">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
         <div class="row2">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="name" placeholder="Name" aria-label="Name" required>
+          <input type="email" name="email" placeholder="Email" aria-label="Email" required>
         </div>
-        <input type="text" name="organisation" placeholder="Organisation">
-        <textarea name="message" placeholder="Message" required></textarea>
+        <input type="text" name="organisation" placeholder="Organisation" aria-label="Organisation">
+        <textarea name="message" placeholder="Message" aria-label="Message" required></textarea>
         <button type="submit">Send&nbsp;&rarr;</button>
       </form>
       <div class="sent" id="sent">Received. We&rsquo;ll be in touch.</div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <span class="mono">&copy; 2026 Asymmetric Industries</span>
-      <span class="mono">Private &amp; Confidential</span>
-    </footer>
-  </div>
+  <footer>
+    <span class="eyebrow">&copy; 2026 Asymmetric Industries</span>
+    <span class="eyebrow">Private &amp; Confidential</span>
+  </footer>
 
 <script>
   if (new URLSearchParams(location.search).get('sent') === '1') {
